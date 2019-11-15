@@ -48,7 +48,6 @@ async def btc(ctx):
     value = cbg.getPriceFor("ethereum")
     await ctx.send("1 ETH = {} @ {}".format(value, now))
 
-
 @bot.command("iota", help="get the current IOTA price in €")
 async def btc(ctx):
     cbg = CoinbaseGetter()
