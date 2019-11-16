@@ -21,6 +21,16 @@ cmdlogger = CommandLogger()
 async def on_ready():
     print(f"{bot.user.name} has connected to Discord Server '{guild}'")
 
+@bot.event
+async def on_member_join(member):
+    await member.create_dm()
+    msg = """
+        Welcome {}, to my Discord server!\n
+        To get a list of available commands i can help you with type `!help`!\n
+        Be kind or get kicked!
+    """.format(str(member))
+    await member.dm_channel.send(msg)
+
 
 # implement all bot commands
 @bot.command("hello", help="Just say hello to each other")
